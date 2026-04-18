@@ -327,3 +327,4 @@ Potential features to add:
 - Browser sync across Chrome profiles
 - Keyboard navigation
 - Prompt versioning
+- Prompt versioning
