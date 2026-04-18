@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prompt Vault</title>
+  <link rel="stylesheet" href="sidebar.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Auth Screen -->
+    <div id="auth-screen" class="screen">
+      <div class="auth-container">
+        <h1 class="logo">Prompt Vault</h1>
+        <p class="tagline">Your AI prompts, everywhere</p>
+        <button id="sign-in-btn" class="primary-btn">Sign in with Google</button>
+      </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="main-screen" class="screen hidden">
+      <header>
+        <h1 class="app-title">Prompt Vault</h1>
+        <div class="user-info">
+          <span id="user-email"></span>
+          <button id="sign-out-btn" class="text-btn">Sign out</button>
+        </div>
+      </header>
+
+      <!-- Search Bar -->
+      <div class="search-container">
+        <input 
+          type="text" 
+          id="search-input" 
+          placeholder="Search prompts, tags, categories..."
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- Add Prompt Button -->
+      <button id="add-prompt-btn" class="add-btn">+ New Prompt</button>
+
+      <!-- Filters -->
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="favorites">⭐ Favorites</button>
+      </div>
+
+      <!-- Prompts List -->
+      <div id="prompts-container" class="prompts-list"></div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state hidden">
+        <p>No prompts yet. Create your first one!</p>
+      </div>
+    </div>
+
+    <!-- Add/Edit Modal -->
+    <div id="modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modal-title">Add Prompt</h2>
+          <button id="close-modal" class="close-btn">&times;</button>
+        </div>
+        <form id="prompt-form">
+          <div class="form-group">
+            <label for="prompt-title">Title *</label>
+            <input type="text" id="prompt-title" required autocomplete="off">
+          </div>
+
+          <div class="form-group">
+            <label for="prompt-text">Prompt *</label>
+            <textarea id="prompt-text" rows="8" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="prompt-category">Category</label>
+            <input 
+              type="text" 
+              id="prompt-category" 
+              list="category-suggestions"
+              autocomplete="off"
+              placeholder="e.g., Teaching, Business, Research"
+            >
+            <datalist id="category-suggestions"></datalist>
+          </div>
+
+          <div class="form-group">
+            <label for="prompt-tags">Tags</label>
+            <input 
+              type="text" 
+              id="prompt-tags" 
+              list="tag-suggestions"
+              autocomplete="off"
+              placeholder="Type and press Enter (separate multiple tags)"
+            >
+            <datalist id="tag-suggestions"></datalist>
+            <div id="tags-display" class="tags-container"></div>
+          </div>
+
+          <div class="form-group checkbox-group">
+            <label>
+              <input type="checkbox" id="prompt-favorite">
+              <span>⭐ Mark as favorite</span>
+            </label>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" id="cancel-btn" class="secondary-btn">Cancel</button>
+            <button type="submit" class="primary-btn">Save Prompt</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="sidebar-bundle.js"></script>
+</body>
+</html>

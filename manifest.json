@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "Prompt Vault",
+  "version": "1.0.0",
+  "description": "AI prompt library with cloud sync across devices",
+  "permissions": [
+    "storage",
+    "sidePanel",
+    "activeTab",
+    "scripting",
+    "identity"
+  ],
+  "host_permissions": [
+    "https://chat.openai.com/*",
+    "https://claude.ai/*",
+    "https://chatgpt.com/*",
+    "https://*.firebaseapp.com/*",
+    "https://*.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Open Prompt Vault"
+  },
+  "side_panel": {
+    "default_path": "sidebar.html"
+  },
+  "commands": {
+    "save-selection": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+S",
+        "mac": "Command+Shift+S"
+      },
+      "description": "Save selected text as prompt"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["injector.js"],
+      "matches": ["https://chat.openai.com/*", "https://chatgpt.com/*", "https://claude.ai/*"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

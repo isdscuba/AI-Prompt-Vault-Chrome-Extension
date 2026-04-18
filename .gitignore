@@ -1,0 +1,12 @@
+node_modules/
+
+# Firebase config with real API keys — copy firebase-config.example.json
+firebase-config.json
+
+# Build output (generated, not source)
+sidebar-bundle.js
+background-bundle.js
+
+# macOS
+.DS_Store
+**/.DS_Store

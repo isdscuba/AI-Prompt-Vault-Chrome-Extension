@@ -1,0 +1,19 @@
+{
+  "name": "prompt-vault",
+  "version": "1.0.0",
+  "description": "A powerful Chrome extension for managing and syncing AI prompts across all your devices using Firebase.",
+  "main": "background.js",
+  "scripts": {
+    "build": "node build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^12.7.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.27.2"
+  }
+}
