@@ -327,7 +327,3 @@ Potential features to add:
 - Browser sync across Chrome profiles
 - Keyboard navigation
 - Prompt versioning
-
----
-
-Built for Dee's AI workflow optimization 🚀
